@@ -43,22 +43,24 @@ namespace altro
         InitializeFromProblem(prob);
       }
 
-      SolverOptions &GetOptions()
-      {
-        static SolverOptions options;
-        return options;
-      }
-
-      const SolverOptions &GetOptions() const
-      {
-        static SolverOptions options;
-        return options;
-      }
-
       // 禁止拷贝构造和赋值
       iLQR(const iLQR &other) = delete;
       iLQR &operator=(const iLQR &other) = delete;
-
+      /*
+      iLQR(iLQR &&other) noexcept : N_(other.N_),
+                                    initial_state_(std::move(other.initial_state_)),
+                                    stats_(std::move(other.stats_)),
+                                    knotpoints_(std::move(other.knotpoints_)),
+                                    Z_(std::move(other.Z_)),
+                                    Zbar_(std::move(other.Zbar_)),
+                                    status_(other.status_),
+                                    costs_(std::move(other.costs_)),
+                                    grad_(std::move(other.grad_)),
+                                    rho_(other.rho_),
+                                    drho_(other.drho_),
+                                    deltaV_(std::move(other.deltaV_)),
+                                    is_initial_state_set(other.is_initial_state_set),
+                                    max_violation_callback_(std::move(other.max_violation_callback_)) {}*/
       /**
        * @brief Copy the data from a Problem class into the iLQR solver
        *
@@ -159,7 +161,13 @@ namespace altro
       }
 
       SolverStats &GetStats() { return stats_; }
+      const SolverStats &GetStats() const { return stats_; }
+      SolverOptions &GetOptions() { return stats_.GetOptions(); }
+      const SolverOptions &GetOptions() const { return stats_.GetOptions(); }
+      VectorXd &GetCosts() { return costs_; }
       SolverStatus GetStatus() const { return status_; }
+      std::shared_ptr<VectorXd> GetInitialState() { return initial_state_; }
+      double GetRegularization() { return rho_; }
 
       /***************************** Setters **************************************/
 
