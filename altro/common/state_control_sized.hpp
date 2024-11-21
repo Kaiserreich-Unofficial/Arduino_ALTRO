@@ -1,10 +1,8 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <ArduinoEigenDense.h>
 
-#include "altro/utils/assert.hpp"
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 

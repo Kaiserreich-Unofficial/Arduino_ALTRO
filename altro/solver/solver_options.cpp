@@ -1,6 +1,1 @@
-//
-// Created by Brian Jackson on 9/12/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
-
-#include "solver_options.hpp"
+#include <altro/solver/solver_options.hpp>

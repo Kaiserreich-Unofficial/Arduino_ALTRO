@@ -1,14 +1,12 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <memory>
 
-#include "altro/common/state_control_sized.hpp"
-#include "altro/constraints/constraint_values.hpp"
-#include "altro/problem/costfunction.hpp"
-#include "altro/problem/problem.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/common/state_control_sized.hpp>
+#include <altro/constraints/constraint_values.hpp>
+#include <altro/problem/costfunction.hpp>
+#include <altro/problem/problem.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 namespace augmented_lagrangian {
@@ -91,7 +89,7 @@ class ALCost : public problem::CostFunction {
 
   /**
    * @brief Append the constraint info for all the constraints in the cost.
-   * 
+   *
    * @param coninfo A vector of constraint info. The constraint info for the
    * current cost is appended on to the end of the vector.
    */

@@ -1,21 +1,19 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #include <fmt/format.h>
 #include <memory>
 
-#include "altro/common/timer.hpp"
+#include <altro/common/timer.hpp>
 
 namespace altro {
 
 /**
  * @brief An entry in the profiler summary table
- * 
- * Records the hierarchical structure of the profiling results. When parsed 
+ *
+ * Records the hierarchical structure of the profiling results. When parsed
  * correctly, these should be arranged in a tree-like structure that is used
  * to calculate the total time and time relative to the parents.
- * 
+ *
  * This is used internally by the Timer class to print the results via PrintSummary.
- * 
+ *
  */
 struct ProfileEntry : public std::enable_shared_from_this<ProfileEntry> {
   using time_t = std::chrono::microseconds;

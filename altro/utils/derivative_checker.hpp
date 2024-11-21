@@ -1,8 +1,6 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
-#include "altro/eigentypes.hpp"
+#include <altro/eigentypes.hpp>
 
 namespace altro {
 namespace utils {

@@ -1,13 +1,11 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <iostream>
 
-#include "altro/common/functionbase.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/utils/derivative_checker.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/common/functionbase.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/utils/derivative_checker.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 namespace problem {
@@ -31,17 +29,17 @@ namespace problem {
  * - `bool HasHessian() const` - Specify if the Hessian is implemented
  *
  * Where we use the following Eigen type alias:
- * 
+ *
  *      using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
  * The user also has the option of defining the static constants:
- * 
+ *
  *      static constexpr int NStates
  *      static constexpr int NControls
  *      static constexpr int NOutputs
  *
- * which can be used to provide compile-time size information. For best performance, 
- * it is highly recommended that the user specify these constants, which default to 
+ * which can be used to provide compile-time size information. For best performance,
+ * it is highly recommended that the user specify these constants, which default to
  * `Eigen::Dynamic` if not specified.
  *
  * ## FunctionBase API
@@ -98,8 +96,8 @@ class ContinuousDynamics : public FunctionBase {
 /**
  * @brief Represents a discrete dynamics function of the form:
  * \f$ x_{k+1} = f(x_k, u_k) \f$
- * 
- * This is the form of the dynamics expected by the altro library. A continuous 
+ *
+ * This is the form of the dynamics expected by the altro library. A continuous
  * time dynamics model can be converted to a discrete model using e.g. `DiscretizedDynamics`.
  *
  * As a specialization of the `FunctionsBase` interface, the user is
@@ -115,33 +113,33 @@ class ContinuousDynamics : public FunctionBase {
  * Eigen::Ref<Eigen::MatrixXd> hess)` - optional
  * - `bool HasHessian() const` - Specify if the Hessian is implemented
  *
- * Where `t` is the time (for time-dependent dynamics) and `h` is the time step. 
+ * Where `t` is the time (for time-dependent dynamics) and `h` is the time step.
  * These can be set and retrieved using `SetTime`, `SetStep`, `GetTime`, and `GetStep`.
- * 
+ *
  * Where we use the following Eigen type alias:
- * 
+ *
  *      using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
  * The user also has the option of defining the static constants:
- * 
+ *
  *      static constexpr int NStates
  *      static constexpr int NControls
  *      static constexpr int NOutputs
  *
- * which can be used to provide compile-time size information. For best performance, 
- * it is highly recommended that the user specify these constants, which default to 
+ * which can be used to provide compile-time size information. For best performance,
+ * it is highly recommended that the user specify these constants, which default to
  * `Eigen::Dynamic` if not specified.
  *
  * ## FunctionBase API
  * If the original FunctionBase API is needed, the following lines need to be
  * added to the public interface of the derived class:
- * 
+ *
  *    using FunctionBase::Evaluate;
  *    using FunctionBase::Jacobian;
  *    using FunctionBase::Hessian;
  *
  * NOTE: If using the FunctionBase API with time-varying dynamics, remember
- * that the time must be updated using `DiscreteDynamics::SetTime`  and 
+ * that the time must be updated using `DiscreteDynamics::SetTime`  and
  * `DiscreteDynamics.SetStep` before calling `FunctionBase::Evaluate`.
  */
 // clang-format on

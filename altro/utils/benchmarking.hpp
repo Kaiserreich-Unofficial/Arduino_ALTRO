@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #include <vector>
 #include <chrono>
 #include <algorithm>
@@ -11,9 +9,9 @@ namespace utils {
 
 
 /**
- * @brief Records the output of a simple benchmark run, recording statistical 
+ * @brief Records the output of a simple benchmark run, recording statistical
  * information on the timing results.
- * 
+ *
  * @tparam Duration Time measurement. Should be a `std::chrono::duration`, usually
  * `std::chrono::microseconds`. At a minimum, should return a std::ratio via the
  * `period` field.
@@ -31,14 +29,14 @@ struct BenchmarkResults {
 
   /**
    * @brief Creates a BenchmarkResults from a vector of time samples.
-   * 
+   *
    * @param times Samples collected from a benchmarking run.
    */
   static BenchmarkResults Calculate(std::vector<time_t>& times);
-  
+
   /**
    * @brief Print a summary of the benchmark results
-   * 
+   *
    */
   void Print();
 };
@@ -86,21 +84,21 @@ void BenchmarkResults<Duration>::Print() {
 static constexpr int kDefaultSamples = 100;
 
 /**
- * @brief Benchmark a function by running it many times and recording the 
+ * @brief Benchmark a function by running it many times and recording the
  * total time.
- * 
+ *
  * @tparam Duration Time measurement. Should be a `std::chrono::duration`, usually
  * `std::chrono::microseconds`. At a minimum, should return a std::ratio via the
  * `period` field.
  * @tparam Function Any object that supports the () operator with zero arguments.
  * @param f Function to benchmark.
  * @param Nsamples Number of times the function f should be run.
- * @return BenchmarkResults<Duration> Summary of benchmark results, containing 
+ * @return BenchmarkResults<Duration> Summary of benchmark results, containing
  * statistical info like mean, median, max, and min times.
  */
 template <class Duration, class Function>
 BenchmarkResults<Duration> Benchmark(Function f, int Nsamples = kDefaultSamples) {
-  using time_t = typename BenchmarkResults<Duration>::time_t; 
+  using time_t = typename BenchmarkResults<Duration>::time_t;
   std::vector<time_t> times;
   times.reserve(Nsamples);
   for (int i = 0; i < Nsamples; ++i) {

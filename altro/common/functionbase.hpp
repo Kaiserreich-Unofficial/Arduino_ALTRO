@@ -1,17 +1,15 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <type_traits>
 
-#include "altro/eigentypes.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/eigentypes.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 
 // clang-format off
 /**
- * @brief Represents a generic vector-valued function of the form 
+ * @brief Represents a generic vector-valued function of the form
  * \f[
  *   out = f(x, u)`
  * \f]
@@ -36,11 +34,11 @@ namespace altro {
  * - `bool HasHessian() const` - Specify if the Hessian is implemented
  *
  * Where we use the following Eigen type alias:
- * 
+ *
  *      using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
  * The user also has the option of defining the static constants:
- * 
+ *
  *      static constexpr int NStates
  *      static constexpr int NControls
  *      static constexpr int NOutputs
@@ -114,11 +112,11 @@ class FunctionBase {
  * true)
  *
  * Where we use the following Eigen type alias:
- * 
+ *
  *      using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
  * The user also has the option of defining the static constants:
- * 
+ *
  *      static constexpr int NStates
  *      static constexpr int NControls
  *

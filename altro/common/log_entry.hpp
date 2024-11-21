@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <fmt/color.h>
@@ -10,19 +8,19 @@ namespace altro {
 
 /**
  * @brief Verbose output level
- * 
+ *
  * Higher levels include all the input from lower levels.
- * 
+ *
  * Both "outer" levels print information about the augmented Lagrangian iterations,
- * while the "inner" levels print information about the iLQR iterations. 
- * 
+ * while the "inner" levels print information about the iLQR iterations.
+ *
  * When printing "inner" iterations the header is printed at every outer AL iteration.
- * 
+ *
  * The secondary "debug" levels provide a few extra fields, while the lowest-level "kDebug"
  * prints everything recorded by the logger.
- * 
+ *
  * The specific values included in each level are subject to change in future revisions.
- * 
+ *
  */
 enum class LogLevel {
   kSilent = 0,
@@ -108,9 +106,9 @@ class LogEntry {
 
   /**
    * @brief Set the type of the entry.
-   * 
+   *
    * The type is any of kInt, kDouble, or kString
-   * 
+   *
    * @param type entry type
    * @return Reference to the log entry.
    */
@@ -118,15 +116,15 @@ class LogEntry {
 
   /**
    * @brief Set the name of the entry
-   * 
-   * The name should be a short but descriptive string, about what you would 
+   *
+   * The name should be a short but descriptive string, about what you would
    * use for a variable name.
-   * 
+   *
    * For example, if we're logging a penalty parameter, the title could be something
    * short like "pen" or "rho", and the name would be "penalty" or "penalty parameter".
-   * 
-   * @param name 
-   * @return LogEntry& 
+   *
+   * @param name
+   * @return LogEntry&
    */
   LogEntry& SetName(const std::string& name);
 

@@ -1,12 +1,10 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <iostream>
 
-#include "altro/eigentypes.hpp"
-#include "altro/common/functionbase.hpp"
-#include "altro/utils/derivative_checker.hpp"
+#include <altro/eigentypes.hpp>
+#include <altro/common/functionbase.hpp>
+#include <altro/utils/derivative_checker.hpp>
 
 namespace altro {
 namespace problem {
@@ -32,7 +30,7 @@ namespace problem {
  * Eigen::Ref<Eigen::MatrixXd> dxdu, Eigen::Ref<Eigen::MatrixXd> dudu)`
  * - `bool HasHessian() const` - Specify if the Hessian is implemented - optional (assumed to be
  * true)
- * 
+ *
  * Where we use the following Eigen type alias:
  *    using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
@@ -40,11 +38,11 @@ namespace problem {
  *    static constexpr int NStates
  *    static constexpr int NControls
  *
- * which can be used to provide compile-time size information. For best performance, 
+ * which can be used to provide compile-time size information. For best performance,
  * it is highly recommended that the user specifies these constants for their implementation.
- * 
+ *
  * # ScalarFunction API
- * To use the ScalarFunction API, insert the following lines into the public 
+ * To use the ScalarFunction API, insert the following lines into the public
  * interface of the derived class:
  *    using ScalarFunction::Gradient;
  *    using ScalarFunction::Hessian;

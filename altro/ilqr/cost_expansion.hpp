@@ -1,14 +1,12 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <memory>
 
-#include "altro/common/knotpoint.hpp"
-#include "altro/common/state_control_sized.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/problem/costfunction.hpp"
-#include "altro/utils/assert.hpp"
+#include <altro/common/knotpoint.hpp>
+#include <altro/common/state_control_sized.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/problem/costfunction.hpp>
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 namespace ilqr {

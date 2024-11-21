@@ -1,23 +1,21 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
-#include "altro/problem/integration.hpp"
+#include <altro/problem/integration.hpp>
 
 namespace altro {
 namespace problem {
 
 /**
  * @brief Discretizes a continuous dynamics model using an explicit integrator.
- * 
- * Uses a specified integrator to integrate a continuous time dynamics model over a 
+ *
+ * Uses a specified integrator to integrate a continuous time dynamics model over a
  * discrete time step.
- * 
+ *
  * @tparam Model Model to be discretized. Must inherit from FunctionBase.
  * @tparam Integrator An explicit integrator. Should inherit from ExplicitIntegrator.
- * 
+ *
  * For best performance, `Model::NStates` and `Model::NControls` should provide
- * compile-time information about the number of states and controls. This will 
+ * compile-time information about the number of states and controls. This will
  * allow the integrator to allocate memory on the stack for any temporary arrays
  * needed during the integration procedure.
  */

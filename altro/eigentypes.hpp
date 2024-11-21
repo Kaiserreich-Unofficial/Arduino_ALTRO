@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <ArduinoEigenDense.h>

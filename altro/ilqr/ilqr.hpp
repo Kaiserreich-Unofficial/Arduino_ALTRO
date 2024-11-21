@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <array>
@@ -9,15 +7,15 @@
 #include <map>
 #include <thread>
 
-#include "altro/common/solver_stats.hpp"
-#include "altro/common/state_control_sized.hpp"
-#include "altro/common/threadpool.hpp"
-#include "altro/common/timer.hpp"
-#include "altro/common/trajectory.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/ilqr/knot_point_function_type.hpp"
-#include "altro/problem/problem.hpp"
-#include "altro/utils/assert.hpp"
+#include <altro/common/solver_stats.hpp>
+#include <altro/common/state_control_sized.hpp>
+#include <altro/common/threadpool.hpp>
+#include <altro/common/timer.hpp>
+#include <altro/common/trajectory.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/ilqr/knot_point_function_type.hpp>
+#include <altro/problem/problem.hpp>
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 namespace ilqr {

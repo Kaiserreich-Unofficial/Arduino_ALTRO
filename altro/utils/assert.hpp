@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 #include <string>
 
@@ -14,9 +12,9 @@ namespace utils {
 
 void AssertMsg(bool expr, const std::string& msg, const char* expr_str, int line, const char* file);
 
-constexpr bool AssertionsActive() { 
+constexpr bool AssertionsActive() {
 #ifndef NDEBUG
-  return true; 
+  return true;
 #else
   return false;
 #endif

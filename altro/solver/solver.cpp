@@ -1,12 +1,7 @@
-//
-// Created by Brian Jackson on 9/12/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
+#include <altro/solver/solver.hpp>
 
-#include "solver.hpp"
-
-#include "altrocpp_interface/altrocpp_interface.hpp"
-#include "altro/common/knotpoint.hpp"
+#include <altrocpp_interface/altrocpp_interface.hpp>
+#include <altro/common/knotpoint.hpp>
 
 namespace altro {
 

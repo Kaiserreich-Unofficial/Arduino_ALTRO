@@ -6,8 +6,8 @@
 #pragma once
 
 #include <ArduinoEigenDense.h>
-#include "fmt/core.h"
-#include "fmt/ostream.h"
+#include <fmt/core.h>
+#include <fmt/ostream.h>
 
 template <class T, int N1, int N2>
 struct fmt::formatter<Eigen::Matrix<T, N1, N2>> : public fmt::ostream_formatter {};

@@ -1,12 +1,10 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #include <iostream>
 #include <fmt/format.h>
 #include <fmt/ostream.h>
 
-#include "altro/common/functionbase.hpp"
-#include "altro/utils/derivative_checker.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/common/functionbase.hpp>
+#include <altro/utils/derivative_checker.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 
@@ -40,13 +38,13 @@ bool FunctionBase::CheckJacobian(const double eps, const bool verbose) {
   return CheckJacobian(x, u, eps, verbose);
 }
 
-bool FunctionBase::CheckJacobian(const VectorXdRef& x, const VectorXdRef& u, 
+bool FunctionBase::CheckJacobian(const VectorXdRef& x, const VectorXdRef& u,
                     const double eps, const bool verbose) {
   int p = OutputDimension();
-  int n = x.size(); 
-  int m = u.size(); 
+  int n = x.size();
+  int m = u.size();
 
-  // NOTE(bjackson): The NOLINT comments here and below are to surpress clang-tidy 
+  // NOTE(bjackson): The NOLINT comments here and below are to surpress clang-tidy
   // warnings about uninitialized values, even though these are clearly initialized.
   MatrixXd fd_jac = MatrixXd::Zero(p, n + m);  // NOLINT
   MatrixXd jac = MatrixXd::Zero(p, n + m);  // NOLINT
@@ -57,9 +55,9 @@ bool FunctionBase::CheckJacobian(const VectorXdRef& x, const VectorXdRef& u,
   Jacobian(x, u, jac);
 
   // Calculate using finite differencing
-  auto fz = [&](auto z) -> VectorXd { 
+  auto fz = [&](auto z) -> VectorXd {
     VectorXd out(this->OutputDimension());
-    this->Evaluate(z.head(n), z.tail(m), out); 
+    this->Evaluate(z.head(n), z.tail(m), out);
     return out;
   };
   fd_jac = utils::FiniteDiffJacobian<Eigen::Dynamic, Eigen::Dynamic>(fz, z);
@@ -110,8 +108,8 @@ bool ScalarFunction::CheckGradient(const double eps, const bool verbose) {
 }
 
 bool ScalarFunction::CheckGradient(const VectorXdRef& x, const VectorXdRef& u, const double eps, const bool verbose) {
-  int n = x.size(); 
-  int m = u.size(); 
+  int n = x.size();
+  int m = u.size();
   VectorXd z(n + m);
   z << x, u;
 

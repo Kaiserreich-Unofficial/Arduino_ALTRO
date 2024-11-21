@@ -1,16 +1,14 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <fmt/format.h>
 #include <memory>
 #include <vector>
 
-#include "altro/constraints/constraint.hpp"
-#include "altro/constraints/constraint_values.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/problem/costfunction.hpp"
-#include "altro/problem/dynamics.hpp"
+#include <altro/constraints/constraint.hpp>
+#include <altro/constraints/constraint_values.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/problem/costfunction.hpp>
+#include <altro/problem/dynamics.hpp>
 
 namespace altro {
 namespace problem {

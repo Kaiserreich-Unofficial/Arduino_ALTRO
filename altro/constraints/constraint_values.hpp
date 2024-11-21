@@ -1,12 +1,10 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 #include <fmt/format.h>
 #include <fmt/ostream.h>
 
-#include "altro/common/state_control_sized.hpp"
-#include "altro/constraints/constraint.hpp"
-#include "altro/eigentypes.hpp"
+#include <altro/common/state_control_sized.hpp>
+#include <altro/constraints/constraint.hpp>
+#include <altro/eigentypes.hpp>
 
 namespace altro {
 namespace constraints {
@@ -81,9 +79,9 @@ class ConstraintValues : public Constraint<ConType> {
     penalty_.setConstant(rho);
   }
 
-  void SetPenaltyScaling(double phi) { 
+  void SetPenaltyScaling(double phi) {
     ALTRO_ASSERT(phi >= 1, "Penalty must be greater than 1.");
-    penalty_scaling_ = phi; 
+    penalty_scaling_ = phi;
   }
 
   /***************************** Methods **************************************/
@@ -178,16 +176,16 @@ class ConstraintValues : public Constraint<ConType> {
 
   /**
    * @brief Update the dual variables
-   * 
+   *
    * Updates the dual variables using the current constraint and penalty values.
    * The resulting dual variables are projected back into the dual cone such that
    * they are always guaranteed to be feasible with respect to the dual cone.
-   * 
+   *
    * The update is of the form:
    * \f[
    * \lambda^+ - \Pi_{K^*}(\lambda - \rho c)
    * \f]
-   * 
+   *
    */
   void UpdateDuals() {
     ConType::DualCone::Projection(lambda_ - penalty_.asDiagonal() * c_, lambda_);
@@ -195,9 +193,9 @@ class ConstraintValues : public Constraint<ConType> {
 
   /**
    * @brief Update the penalty parameters
-   * 
+   *
    * For now just does a naive uniform geometric increase.
-   * 
+   *
    */
   void UpdatePenalties() {
     // TODO(bjackson): Look into more advanced methods for updating the penalty parameter
@@ -208,9 +206,9 @@ class ConstraintValues : public Constraint<ConType> {
 
   /**
    * @brief Calculate the maximum constraint violation
-   * 
+   *
    * @tparam p The norm to use when calculating the violation (default = Infinity)
-   * @return Maximum constraint violation 
+   * @return Maximum constraint violation
    */
   template <int p = Eigen::Infinity>
   double MaxViolation() {
@@ -221,8 +219,8 @@ class ConstraintValues : public Constraint<ConType> {
 
   /**
    * @brief Find the maximum penalty
-   * 
-   * @return The maximum penalty parameter 
+   *
+   * @return The maximum penalty parameter
    */
   double MaxPenalty() { return penalty_.maxCoeff(); }
 

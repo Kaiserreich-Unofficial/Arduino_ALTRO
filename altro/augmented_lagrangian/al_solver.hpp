@@ -1,5 +1,3 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <fmt/format.h>
@@ -8,11 +6,11 @@
 #include <limits>
 #include <type_traits>
 
-#include "altro/augmented_lagrangian/al_problem.hpp"
-#include "altro/constraints/constraint.hpp"
-#include "altro/constraints/constraint_values.hpp"
-#include "altro/ilqr/ilqr.hpp"
-#include "altro/utils/assert.hpp"
+#include <altro/augmented_lagrangian/al_problem.hpp>
+#include <altro/constraints/constraint.hpp>
+#include <altro/constraints/constraint_values.hpp>
+#include <altro/ilqr/ilqr.hpp>
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 namespace augmented_lagrangian {
@@ -53,15 +51,15 @@ class AugmentedLagrangianiLQR {
 
   /**
    * @brief Print a summary of all of the constraints in the problem.
-   * 
-   * Prints the label of each constraint, it's knot point index, and a vector 
+   *
+   * Prints the label of each constraint, it's knot point index, and a vector
    * of it's violations.
-   * 
+   *
    * Each element contains a basic description of the constraint, the knot
    * point index at which it's located, and a vector of it's current violations.
-   * 
-   * @param[in] should_sort Sorts the constraints by the infinity norm of their 
-   *                        constraint. Default is false (no sorting), where 
+   *
+   * @param[in] should_sort Sorts the constraints by the infinity norm of their
+   *                        constraint. Default is false (no sorting), where
    *                        they are sorted by knot point index.
    * @param[in] precision   Controls the precision of the numerical output.
    */
@@ -75,11 +73,11 @@ class AugmentedLagrangianiLQR {
 
   /**
    * @brief Get a list of the constraints.
-   * 
+   *
    * Each element contains a basic description of the constraint, the knot
    * point index at which it's located, and a vector of it's current violations.
-   * 
-   * @param should_sort Sorts the constraints by the infinity norm of their constraint 
+   *
+   * @param should_sort Sorts the constraints by the infinity norm of their constraint
    * violations.
    * @return std::vector<constraints::ConstraintInfo>
    */

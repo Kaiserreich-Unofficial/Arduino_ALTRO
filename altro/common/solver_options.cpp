@@ -1,6 +1,4 @@
-// Copyright [2021] Optimus Ride Inc.
-
-#include "altro/common/solver_options.hpp"
+#include <altro/common/solver_options.hpp>
 
 namespace altro {
 

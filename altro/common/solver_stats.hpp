@@ -1,11 +1,9 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
-#include "altro/common/solver_options.hpp"
-#include "altro/common/solver_logger.hpp"
-#include "altro/common/timer.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/common/solver_options.hpp>
+#include <altro/common/solver_logger.hpp>
+#include <altro/common/timer.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 
@@ -32,19 +30,19 @@ enum class SolverStatus {
 
 /**
  * @brief Holds statistics recorded during the solve
- * 
+ *
  * This class also provides functionality to output data to the terminal,
  * with varying levels of verbosity.
- * 
- * Any new data fields to be recorded and printed via the logger should be 
+ *
+ * Any new data fields to be recorded and printed via the logger should be
  * "registered" with the logger in DefaultLogger(). Not all data fields in this
  * struct need to be "registered" with the logger.
- * 
+ *
  */
 class SolverStats {
  public:
-  SolverStats() : timer_(Timer::MakeShared()) { 
-    DefaultLogger(); 
+  SolverStats() : timer_(Timer::MakeShared()) {
+    DefaultLogger();
   }
 
   double initial_cost = 0.0;
@@ -62,9 +60,9 @@ class SolverStats {
 
   /**
    * @brief Set the cost, constraint, and gradient tolerances for the output.
-   * 
+   *
    * Any logged valued below these tolerances will be printed in green.
-   * 
+   *
    * @param cost Cost tolerance, or the change in cost between iterations.
    * @param viol Maximum constraint violation.
    * @param grad Max norm of the gradient.
@@ -73,7 +71,7 @@ class SolverStats {
 
   /**
    * @brief Set the capacity of the internally-stored vectors
-   * 
+   *
    * @param n Size to allocate, generally equal to the maximum number of iterations.
    */
   void SetCapacity(int n);
@@ -81,20 +79,20 @@ class SolverStats {
   /**
    * @brief Reset the statistics, clearing all the vectors and resetting all
    * counters to zero.
-   * 
+   *
    */
   void Reset();
 
   /**
    * @brief Set the verbosity level for the console logger
-   * 
-   * @param level 
+   *
+   * @param level
    */
   void SetVerbosity(const LogLevel level) { logger_.SetLevel(level); }
 
   /**
    * @brief Get the verbosity of the console logger
-   * 
+   *
    * @return Current verbosity level
    */
   LogLevel GetVerbosity() const { return logger_.GetLevel(); }
@@ -108,24 +106,24 @@ class SolverStats {
 
   /**
    * @brief Print the last iteration to the console
-   * 
+   *
    */
   void PrintLast() { logger_.Print(); }
 
   /**
    * @brief Log the data
-   * 
+   *
    * This command does 2 things:
-   * 1) It attempts to send the value to logger, where it will formatted into a 
+   * 1) It attempts to send the value to logger, where it will formatted into a
    * string and stored for later printing.
-   * 2) It stashes the value in the corresponding storage vector, always saving 
+   * 2) It stashes the value in the corresponding storage vector, always saving
    * to the last element of the vector.
-   * 
-   * This function will overwrite the previous value if called multiple times 
+   *
+   * This function will overwrite the previous value if called multiple times
    * between calls to NewIteration().
-   * 
+   *
    * @tparam T data type of the value to be logged. Should be consistent with the data field.
-   * @param title Title of the value to be logged. This is the same as the header printed in 
+   * @param title Title of the value to be logged. This is the same as the header printed in
    * the console.
    * @param value Value to be logged.
    */
@@ -136,9 +134,9 @@ class SolverStats {
   }
 
   /**
-   * @brief Advance the data forward by one iteration, effectively saving 
+   * @brief Advance the data forward by one iteration, effectively saving
    * all the current data.
-   * 
+   *
    */
   void NewIteration();
 
@@ -150,9 +148,9 @@ class SolverStats {
 
   /**
    * @brief Saves the data in the corresponding vector.
-   * 
+   *
    * @tparam T data type of the value to be logged.
-   * @param title Title of the log entry. Corresponds with the header printed 
+   * @param title Title of the log entry. Corresponds with the header printed
    * to the console.
    * @param value Value to be saved.
    */
@@ -161,10 +159,10 @@ class SolverStats {
 
   /**
    * @brief Create an entry in floats_ that maps the title key to one of the publically-accessible
-   * vectors. 
-   * 
+   * vectors.
+   *
    * This method is called when setting up the SolverStats object.
-   * 
+   *
    * @tparam T Data type of the entry field (doubles or ints).
    * @param entry Entry field to which the data vector is to be associated.
    * @param data One of the publically-accessible vectors stored in this class.
@@ -177,7 +175,7 @@ class SolverStats {
 
   /**
    * @brief Create the default logging fields
-   * 
+   *
    */
   void DefaultLogger();
 

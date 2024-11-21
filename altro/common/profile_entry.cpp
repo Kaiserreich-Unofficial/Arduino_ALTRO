@@ -1,6 +1,4 @@
-// Copyright [2021] Optimus Ride Inc.
-
-#include "altro/common/profile_entry.hpp"
+#include <altro/common/profile_entry.hpp>
 
 namespace altro {
 

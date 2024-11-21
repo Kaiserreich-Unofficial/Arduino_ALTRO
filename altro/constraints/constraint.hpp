@@ -1,14 +1,12 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <iostream>
 #include <memory>
 #include <string>
 
-#include "altro/common/functionbase.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/utils/utils.hpp"
+#include <altro/common/functionbase.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/utils/utils.hpp>
 
 namespace altro {
 namespace constraints {
@@ -50,7 +48,7 @@ class ZeroCone {
 
 /**
  * @brief An alias for the `ZeroCone` cone.
- * 
+ *
  */
 using Equality = ZeroCone;
 
@@ -123,13 +121,13 @@ class NegativeOrthant {
 
 /**
  * @brief A alias for the `NegativeOrthant` cone.
- * 
+ *
  */
 using Inequality = NegativeOrthant;
 
 /**
  * @brief Contains basic information about a single constraint
- * 
+ *
  */
 struct ConstraintInfo {
   std::string label;
@@ -158,7 +156,7 @@ std::ostream& operator<<(std::ostream& os, const ConstraintInfo& coninfo);
  * - `std::string GetLabel() const` - A brief description of the constraint for printing.
  *
  * Where we use the following Eigen type alias:
- * 
+ *
  *      using VectorXdRef = Eigen::Ref<const Eigen::VectorXd>
  *
  * The constraint is required to at least have continuous 1st order derivatives,

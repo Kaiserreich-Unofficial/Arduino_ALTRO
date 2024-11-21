@@ -1,6 +1,4 @@
-// Copyright [2021] Optimus Ride Inc.
-
-#include "altro/problem/dynamics.hpp"
+#include <altro/problem/dynamics.hpp>
 
 namespace altro {
 namespace problem {

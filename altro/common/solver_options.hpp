@@ -1,12 +1,10 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <thread>
 #include <cmath>
 
-#include "altro/utils/utils.hpp"
-#include "altro/common/solver_logger.hpp"
+#include <altro/utils/utils.hpp>
+#include <altro/common/solver_logger.hpp>
 
 namespace altro {
 
@@ -14,7 +12,7 @@ constexpr int kPickHardwareThreads = -1;
 
 /**
  * @brief Options for augmented Lagrangian and iLQR solvers
- * 
+ *
  */
 struct SolverOptions {
   SolverOptions();
@@ -23,7 +21,7 @@ struct SolverOptions {
   int max_iterations_total = 300;         // NOLINT Maximum number of total iterative LQR iterations
   int max_iterations_outer = 30;          // NOLINT Maximum augmented Lagrangian iterations
   int max_iterations_inner = 100;         // NOLINT Max iLQR iterations in a single solve
-  double cost_tolerance = 1e-4;           // NOLINT Threshold for cost decrease 
+  double cost_tolerance = 1e-4;           // NOLINT Threshold for cost decrease
   double gradient_tolerance = 1e-2;       // NOLINT Threshold for infinity-norm of the approximate gradient
 
   double bp_reg_increase_factor = 1.6;    // NOLINT Multiplicative factor for increasing the regularization
@@ -31,7 +29,7 @@ struct SolverOptions {
   double bp_reg_initial = 0.0;            // NOLINT Initial regularization
   double bp_reg_max = 1e8;                // NOLINT Maximum regularization
   double bp_reg_min = 1e-8;               // NOLINT Minimum regularization
-  // double bp_reg_forwardpass = 10.0;     
+  // double bp_reg_forwardpass = 10.0;
   int bp_reg_fail_threshold = 100;        // NOLINT How many time the backward pass can fail before throwing an error
   bool check_forwardpass_bounds = true;   // NOLINT Whether to check if the rollouts stay within the specified bounds
   double state_max = 1e8;                 // NOLINT Maximum state value (abs)

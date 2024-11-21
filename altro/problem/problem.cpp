@@ -1,10 +1,8 @@
-// Copyright [2021] Optimus Ride Inc.
-
-#include "altro/problem/problem.hpp"
+#include <altro/problem/problem.hpp>
 
 #include <iostream>
 
-#include "altro/utils/assert.hpp"
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 namespace problem {

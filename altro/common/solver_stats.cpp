@@ -1,6 +1,4 @@
-// Copyright [2021] Optimus Ride Inc.
-
-#include "altro/common/solver_stats.hpp"
+#include <altro/common/solver_stats.hpp>
 
 #include <fmt/format.h>
 #include <fmt/ostream.h>
@@ -38,7 +36,7 @@ void SolverStats::Reset() {
     kv.second->clear();
   }
   logger_.Clear();
-  
+
   // Pull info from options
   SetCapacity(opts_.max_iterations_total);
   SetVerbosity(opts_.verbose);

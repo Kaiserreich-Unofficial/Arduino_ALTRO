@@ -1,16 +1,14 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <memory>
 #include <array>
 
-#include "altro/common/state_control_sized.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/ilqr/cost_expansion.hpp"
-#include "altro/ilqr/dynamics_expansion.hpp"
-#include "altro/problem/costfunction.hpp"
-#include "altro/problem/dynamics.hpp"
+#include <altro/common/state_control_sized.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/ilqr/cost_expansion.hpp>
+#include <altro/ilqr/dynamics_expansion.hpp>
+#include <altro/problem/costfunction.hpp>
+#include <altro/problem/dynamics.hpp>
 
 namespace altro {
 namespace ilqr {

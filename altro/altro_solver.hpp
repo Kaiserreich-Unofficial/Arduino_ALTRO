@@ -1,17 +1,12 @@
-//
-// Created by Brian Jackson on 9/12/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
-
 #pragma once
 
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "altro/solver/exceptions.hpp"
-#include "altro/solver/solver_options.hpp"
-#include "altro/solver/typedefs.hpp"
+#include <altro/solver/exceptions.hpp>
+#include <altro/solver/solver_options.hpp>
+#include <altro/solver/typedefs.hpp>
 
 namespace altro {
 

@@ -1,14 +1,12 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <string>
 
 #include <fmt/format.h>
 
-#include "altro/common/state_control_sized.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/utils/assert.hpp"
+#include <altro/common/state_control_sized.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 
@@ -151,9 +149,9 @@ class KnotPoint : public StateControlSized<n, m> {
   /**
    * @brief Create a string containing a print out of all the states and controls
    * in a single line.
-   * 
+   *
    * @param width Controls the width of each numerical field
-   * @return std::string 
+   * @return std::string
    */
   std::string ToString(int width = 9) const {
     std::string out;
@@ -170,8 +168,8 @@ class KnotPoint : public StateControlSized<n, m> {
   }
 
  private:
-  static double UniformRandom(double upper, int resolution) { 
-    return upper * static_cast<double>(rand() % resolution) / static_cast<double>(resolution); 
+  static double UniformRandom(double upper, int resolution) {
+    return upper * static_cast<double>(rand() % resolution) / static_cast<double>(resolution);
   }
 
   StateVector x_;

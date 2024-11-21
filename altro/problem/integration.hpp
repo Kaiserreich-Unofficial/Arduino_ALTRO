@@ -1,14 +1,12 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <vector>
 #include <array>
 #include <memory>
 
-#include "altro/eigentypes.hpp"
-#include "altro/problem/dynamics.hpp"
-#include "altro/common/state_control_sized.hpp"
+#include <altro/eigentypes.hpp>
+#include <altro/problem/dynamics.hpp>
+#include <altro/common/state_control_sized.hpp>
 namespace altro {
 namespace problem {
 /**
@@ -17,11 +15,11 @@ namespace problem {
  *
  * All sub-classes must implement the `Integrate` method that integrates an
  * arbitrary functor over some time step, as well as it's first derivative
- * via the `Jacobian` method. 
- * 
- * Sub-classes should have a constructor that takes the state and control 
+ * via the `Jacobian` method.
+ *
+ * Sub-classes should have a constructor that takes the state and control
  * dimension, e.g.:
- * 
+ *
  * `MyIntegrator(int n, int m);`
  *
  * @tparam DynamicsFunc the type of the function-like object that evaluates a
@@ -177,15 +175,15 @@ class RungeKutta4 final : public ExplicitIntegrator<NStates, NControls> {
     k3_.setZero(n);
     k4_.setZero(n);
     for (int i = 0; i < 4; ++i) {
-      A_[i].setZero(n, n); 
+      A_[i].setZero(n, n);
       B_[i].setZero(n, m);
-      dA_[i].setZero(n, n); 
+      dA_[i].setZero(n, n);
       dB_[i].setZero(n, m);
     }
   }
 
   // These need to be mutable to keep the integration methods as const methods
-  // Since they replace arrays that would otherwise be created temporarily and 
+  // Since they replace arrays that would otherwise be created temporarily and
   // provide no public access, it should be fine.
   VectorNd<NStates> k1_;
   VectorNd<NStates> k2_;

@@ -1,14 +1,9 @@
-//
-// Created by Brian Jackson on 9/12/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
-
-#include "altro_solver.hpp"
+#include <altro/altro_solver.hpp>
 
 #include <ArduinoEigenDense.h>
-#include "altrocpp_interface/altrocpp_interface.hpp"
-#include "solver/solver.hpp"
-#include "utils/formatting.hpp"
+#include <altrocpp_interface/altrocpp_interface.hpp>
+#include <altro/solver/solver.hpp>
+#include <altro/utils/formatting.hpp>
 
 namespace altro {
 

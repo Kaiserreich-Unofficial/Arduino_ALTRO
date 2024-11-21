@@ -1,8 +1,6 @@
-// Copyright [2021] Optimus Ride Inc.
+#include <altro/common/log_entry.hpp>
 
-#include "altro/common/log_entry.hpp"
-
-#include "altro/utils/assert.hpp"
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 

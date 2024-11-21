@@ -1,18 +1,13 @@
-//
-// Created by Brian Jackson on 9/12/22.
-// Copyright (c) 2022 Robotic Exploration Lab. All rights reserved.
-//
-
 #pragma once
 
 #include <memory>
 
-#include "altro/augmented_lagrangian/al_solver.hpp"
-#include "internal_types.hpp"
-#include "knotpoint_data.hpp"
-#include "shifted_vector.hpp"
-#include "solver_options.hpp"
-#include "solver_stats.hpp"
+#include <altro/augmented_lagrangian/al_solver.hpp>
+#include <altro/solver/internal_types.hpp>
+#include <altro/solver/knotpoint_data.hpp>
+#include <altro/solver/knotpoint_data.hpp>
+#include <altro/solver/solver_stats.hpp>
+#include <altro/solver/solver_stats.hpp>
 
 namespace altro {
 

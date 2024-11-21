@@ -1,13 +1,11 @@
-// Copyright [2021] Optimus Ride Inc.
-
 #pragma once
 
 #include <iostream>
 #include <vector>
 
-#include "altro/common/knotpoint.hpp"
-#include "altro/eigentypes.hpp"
-#include "altro/utils/assert.hpp"
+#include <altro/common/knotpoint.hpp>
+#include <altro/eigentypes.hpp>
+#include <altro/utils/assert.hpp>
 
 namespace altro {
 
@@ -106,8 +104,8 @@ class Trajectory {
   /*************************** Setters ****************************************/
 
   /**
-   * @brief Set the states and controls to zero 
-   * 
+   * @brief Set the states and controls to zero
+   *
    */
   void SetZero() {
     for (iterator z_ptr = begin(); z_ptr != end(); ++z_ptr) {
