@@ -1,0 +1,25 @@
+{
+  "name": "Arduino_ALTRO",
+  "keywords": "altro, optimization, trajectory, microcontroller",
+  "description": "C++ implementation of ALTRO (Augmented Lagrangian TRajectory Optimizer) for Arduino Boards/Microcontrollers",
+  "repository":
+  {
+      "type": "git",
+      "url": "https://github.com/Kaiserreich-Unofficial/Arduino_ALTRO.git"
+  },
+  "authors":
+  {
+      "name": "Kaiserreich-Unofficial",
+      "url": "https://github.com/Kaiserreich-Unofficial/Arduino_ALTRO",
+      "maintainer": true
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "frameworks": "arduino",
+  "platforms": "*",
+  "dependencies":
+  {
+      "hideakitai/ArduinoEigen": "*",
+      "DarkWizarD24/ardfmt":"*"
+  }
+}
